@@ -226,7 +226,14 @@ class DockerRuntime(ActionExecutionClient):
                 self.config.workspace_mount_path: {
                     'bind': self.config.workspace_mount_path_in_sandbox,
                     'mode': 'rw',
-                }
+                },
+                '/data/OpenHands/config/.git-credentials':{
+                    'bind':'/root/.git-credentials'
+                },
+                '/data/OpenHands/config/.gitconfig':{
+                    'bind':'/root/.gitconfig'
+                },
+
             }
             logger.debug(f'Mount dir: {self.config.workspace_mount_path}')
         else:
